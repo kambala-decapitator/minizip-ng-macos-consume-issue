@@ -13,7 +13,8 @@ jobs:
     - name: Remove macOS 14 SDK
       run: |
         ls -l /Library/Developer/CommandLineTools/SDKs
-        sudo rm -rf /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk
+        sudo rm -rf /Library/Developer/CommandLineTools/SDKs/MacOSX14{,.5}.sdk
+        ls -l /Library/Developer/CommandLineTools/SDKs
 
     - name: Install minizip-ng
       run: |
