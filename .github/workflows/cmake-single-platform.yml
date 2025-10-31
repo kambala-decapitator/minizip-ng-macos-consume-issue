@@ -12,9 +12,7 @@ jobs:
 
     - name: Remove macOS 14 SDK
       run: |
-        ls -l /Library/Developer/CommandLineTools/SDKs
         sudo rm -rf /Library/Developer/CommandLineTools/SDKs/MacOSX14{,.5}.sdk
-        ls -l /Library/Developer/CommandLineTools/SDKs
 
     - name: Install minizip-ng
       run: |
@@ -24,7 +22,7 @@ jobs:
     - name: Configure CMake
       run: |
         xcode-select -p
-        cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
 
     - name: Build
       run: cmake --build build -- -v
