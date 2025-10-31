@@ -12,9 +12,10 @@ jobs:
 
     - name: Configure CMake
       run: |
+        cat "$(brew --prefix minizip-ng)/lib/cmake/minizip-ng/minizip-ng.cmake"
         xcode-select -p
         brew install minizip-ng
         cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build build
+      run: cmake --build build -- -v
