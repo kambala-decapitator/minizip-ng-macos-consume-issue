@@ -5,16 +5,19 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-15-intel
 
     steps:
     - uses: actions/checkout@v4
 
+    - name: Install minizip-ng
+      run: |
+        brew install minizip-ng
+        fgrep set_target_properties -A4 "$(brew --prefix minizip-ng)/lib/cmake/minizip-ng/minizip-ng.cmake"
+
     - name: Configure CMake
       run: |
         xcode-select -p
-        brew install minizip-ng
-        cat "$(brew --prefix minizip-ng)/lib/cmake/minizip-ng/minizip-ng.cmake"
         cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
