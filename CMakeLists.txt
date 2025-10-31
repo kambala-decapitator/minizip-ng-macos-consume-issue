@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
 project(test LANGUAGES C)
 find_package(minizip-ng REQUIRED)
-add_executable(test main.c)
+add_library(test main.c)
 target_link_libraries(test PRIVATE minizip-ng)
