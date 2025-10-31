@@ -1,3 +1,5 @@
-int main1() {
-  return 0;
+extern int f(void);
+
+int main() {
+  return f();
 }
