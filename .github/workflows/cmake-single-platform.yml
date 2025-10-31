@@ -10,6 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Remove macOS 14 SDK
+      run: |
+        ls -l /Library/Developer/CommandLineTools/SDKs
+        sudo rm -rf /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk
+
     - name: Install minizip-ng
       run: |
         brew install minizip-ng
