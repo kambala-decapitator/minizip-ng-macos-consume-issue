@@ -12,6 +12,7 @@ jobs:
 
     - name: Configure CMake
       run: |
+        ls -lR "$(brew --prefix minizip-ng)/lib/cmake"
         cat "$(brew --prefix minizip-ng)/lib/cmake/minizip-ng/minizip-ng.cmake"
         xcode-select -p
         brew install minizip-ng
